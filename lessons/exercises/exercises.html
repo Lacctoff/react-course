@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>React Basics Exercises</title>
+</head>
+<body>
+  <div class="js-container"></div>
+
+  <script src="https://unpkg.com/supersimpledev/dayjs.js"></script>
+
+  <script>
+    // const socks = 10;
+    // const shirt = 8;
+
+    // const productCost = socks + (shirt * 2);
+
+    // const shippingCost = 5;
+
+    // console.log('Product Cost:', `$${productCost}`);
+    // console.log('Shipping Cost:', `$${shippingCost}`);
+    // console.log('Total Cost:', `$${productCost + shippingCost}`);
+
+
+
+    // const todayDate = dayjs().format('MMMM D');
+
+    console.log(todayDate);
+  </script>
+
+
+  <script src="https://unpkg.com/supersimpledev/react.js"></script>
+  <script src="https://unpkg.com/supersimpledev/react-dom.js"></script>
+
+
+
+  <script src="https://unpkg.com/supersimpledev/babel.js"></script>
+
+  <script type="text/babel">
+    const button = <button>Good job!</button>;
+    const button2 = <button>Add to Cart</button>;
+    const paragraph = <p>My name is Lacctoff</p>;
+
+    const socks = 10;
+    const shirt = 8;
+
+    const productCost = socks + (shirt * 2);
+
+    const shippingCost = 5;
+
+    const todayDate = dayjs().format('MMMM D');
+    const currentTime = dayjs().format('HH:mm:ss');
+
+    // exercise
+    const div = (
+      <div>
+        <p>Cotton socks </p>
+        <p>Price: ${5 + 5}</p>
+        {button2}
+      </div>
+    )
+
+    //exercise 1F
+    const div2 = (
+      <div>
+        <p>Today's date: {todayDate} and current time: {currentTime}</p>
+        <p>Product cost: ${productCost}</p>
+        <p>Shipping cost: ${shippingCost}</p>
+        <p>Total cost: ${productCost + shippingCost}</p>
+        <button>Place your order</button>
+      </div>
+    )
+    const container = document.querySelector('.js-container');
+    ReactDOM.createRoot(container).render(div2);
+  </script>
+</body>
+</html>

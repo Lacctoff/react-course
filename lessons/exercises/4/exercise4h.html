@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>React basics</title>
+</head>
+<body>
+  <div class="js-container"></div>
+
+
+  <script src="https://unpkg.com/supersimpledev/react.js"></script>
+  <script src="https://unpkg.com/supersimpledev/react-dom.js"></script>
+
+
+  <script src="https://unpkg.com/supersimpledev/babel.js"></script>
+
+  <script type="text/babel">
+
+
+    function App () {
+      const [count, setCount] = React.useState(0);
+      const autoClickButtonRef = React.useRef();
+
+      function handleClick() {
+        const nextCount = count + 1;
+        setCount(nextCount);
+
+        console.log("button clicked!")
+      }
+
+      function resetCount() {
+        setCount(0);
+      }
+
+      function autoClickHandler() {
+        setInterval(() => {
+          const buttonElem = autoClickButtonRef.current;
+          buttonElem.click();
+        }, 1000);
+      }
+      return (
+        <>
+          <button onClick={handleClick} ref={autoClickButtonRef}>Clicked {count} Time{count != 1 && 's'}</button>
+          <button onClick={resetCount}>Reset</button>
+          <button onClick={autoClickHandler}>Auto Click</button>
+        </>
+      );
+    }
+
+
+    const container = document.querySelector('.js-container');
+    ReactDOM.createRoot(container).render(<App />);
+  </script>
+</body>
+</html>

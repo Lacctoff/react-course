@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSS & Hooks</title>
+
+  <style>
+    body {
+      font-family: Arial;
+      margin: 20px;
+    }
+
+    .btn {
+      background-color: rgb(25, 135, 84);
+      color: white;
+      padding: 12px 20px;
+      border-radius: 8px;
+      margin-left: 10px;
+      border: none;
+      cursor: pointer;
+      font-size: 15px;
+    }
+
+    .btn-off {
+      background-color: red;
+      color: white;
+      padding: 12px 20px;
+      border-radius: 8px;
+      margin-left: 10px;
+      border: none;
+      cursor: pointer;
+      font-size: 15px;
+    }
+  </style>
+</head>
+<body>
+  <div class="js-container"></div>
+
+
+  <script src="https://unpkg.com/supersimpledev/react.js"></script>
+  <script src="https://unpkg.com/supersimpledev/react-dom.js"></script>
+
+
+  <script src="https://unpkg.com/supersimpledev/babel.js"></script>
+
+  <script type="text/babel">
+
+    function ButtonSet () {
+      const [isButtonOn, setIsButtonOn] = React.useState(false);
+
+      const toggleButton = () => {
+        setIsButtonOn(!isButtonOn);
+      }
+
+
+      return (
+        <>
+          <button className={isButtonOn ? 'btn' : 'btn-off'} onClick={toggleButton}>
+            {isButtonOn ? 'ON' : 'OFF'}
+          </button>
+        </>
+      );
+    }
+
+
+    function App () {
+      return (
+        <>
+          <ButtonSet />
+        </>
+      );
+    }
+
+
+    const container = document.querySelector('.js-container');
+    ReactDOM.createRoot(container).render(<App />);
+  </script>
+</body>
+</html>
